@@ -1,0 +1,24 @@
+ #instafeed a img{
+    padding: 10px;
+    margin: 10px;
+    height: 250px;
+    width: 325px;
+    box-shadow: 0px 0px 3px #ccc;
+    border-radius: 1px;
+ }
+ 
+ .nav-green {
+ }
+
+.center-navbar {
+	text-align:center;
+}
+.center-navbar .nav {
+	float:none;
+}
+.center-navbar .nav li {
+	display:inline-block;
+	float:none;
+	/*margin:0 20px;*/
+	vertical-align:middle;
+}

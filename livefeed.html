@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>The Giving Selfie</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="container visible-lg visible-md">
+    <img src="img/logo.jpg" height="150px" class='center-block'>
+    <br />
+  </div>
+  <div class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand hidden-md hidden-lg" href="#">The Giving Selfie</a>
+      </div>
+      <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right hidden-md hidden-lg">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="livefeed.html">Live Feed <span class="sr-only">(current)</span></a></li>
+          <li><a href="learnmore.html">Learn More</a></li>
+        </ul>
+        <div class="center-navbar hidden-sm hidden-xs">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Home</a></li>
+            <li class="active"><a href="#">Live Feed <span class="sr-only">(current)</span></a></li>
+            <li><a href="learnmore.html">Learn More</a></li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.navbar -->
+  </div>
+
+  <div class="container">
+    <div class='text-center'>
+      <h1>Choose a Campaign</h1>
+      <br>
+      <a href="#" class="btn btn-success" onClick="newTag('shoes')">#shoes</a>
+      <a href="#" class="btn btn-success" onClick="newTag('dogs')">#dogs</a>
+      <a href="#" class="btn btn-success" onClick="newTag('cats')">#cats</a>
+      <a href="#" class="btn btn-success" onClick="newTag('dancing')">#dancing</a>
+    </div>
+    <br>
+    <div id="instafeed">
+
+    </div>
+  </div>
+  <!--load jquery Library-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!--load Bootstrap JS-->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/instafeed.js"></script>
+  <script type="text/javascript">
+    var tag = "awesome";
+
+    var feed = new Instafeed({
+      get: 'tagged',
+      tagName: tag,
+      clientId: '3a1143456cde4b7694399a83f3f14da9',
+      resolution: 'low_resolution',
+      template: '<a href="{{link}}"><img src="{{image}}" class="feed-item" /></a>'
+    });
+    feed.run();
+
+    function newTag(setting) {
+
+      var myNode = document.getElementById("instafeed");
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+      }
+      feed.options.tagName = setting;
+      feed.run();
+    }
+  </script>
+</body>
+
+</html>
